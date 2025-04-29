@@ -29,7 +29,7 @@ opt.splitright = true
 opt.splitbelow = true
 
 -- 搜索
-opt.ignorecase = false
+opt.ignorecase = true
 opt.smartcase = true
 
 -- 外观

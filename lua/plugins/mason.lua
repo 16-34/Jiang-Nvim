@@ -15,6 +15,7 @@ return {
             end
 
             local nvim_lsp = require("mason-lspconfig.mappings.server").package_to_lspconfig[lsp_name]
+            config.capabilities = require("blink.cmp").get_lsp_capabilities()
             require("lspconfig")[nvim_lsp].setup({})
         end
 
