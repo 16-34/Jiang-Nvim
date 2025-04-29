@@ -1,4 +1,7 @@
 -- 全局搜索
+-- requirements: 
+-- -- ripgrep
+-- -- cmake
 return {
     "nvim-telescope/telescope.nvim",
     dependencies = {"nvim-lua/plenary.nvim", {

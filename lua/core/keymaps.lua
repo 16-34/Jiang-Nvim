@@ -1,6 +1,7 @@
 -- -- 改键
 -- 主键
 vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
 
 local keymap = vim.keymap
 
@@ -14,5 +15,8 @@ keymap.set("t", "<ESC>", "<C-\\><C-n>", {
     silent = true
 })
 
+-- 代码格式化
+keymap.set("n", "<leader>f", "<CMD>lua vim.lsp.buf.format()<CR>")
+
 -- 取消高亮
-keymap.set("n", "<leader>nh", ":nohl<CR>")
+keymap.set("n", "<leader>nh", "<CMD>nohl<CR>")

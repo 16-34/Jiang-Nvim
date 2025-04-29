@@ -1,9 +1,29 @@
 -- LSP 服务器
+-- requirements:
+-- -- Unix:
+-- -- -- git
+-- -- -- curl / wget
+-- -- -- unzip
+-- -- -- GNU tar (tar / gtar depending on platform)
+-- -- -- gzip
+-- -- Windows:
+-- -- -- pwsh / powershell
+-- -- -- git
+-- -- -- GNU tar
+-- -- -- 7zip / peazip / archiver / winzip / WinRAR
 return {
     "williamboman/mason.nvim",
     event = "VeryLazy",
     dependencies = {"neovim/nvim-lspconfig", "williamboman/mason-lspconfig"},
-    opts = {},
+    opts = {
+        ui = {
+            icons = {
+                package_installed = "✓",
+                package_pending = "➜",
+                package_uninstalled = "✗"
+            }
+        }
+    },
     config = function(_, opts)
         require("mason").setup(opts)
         local registry = require("mason-registry")
@@ -16,11 +36,15 @@ return {
 
             local nvim_lsp = require("mason-lspconfig.mappings.server").package_to_lspconfig[lsp_name]
             config.capabilities = require("blink.cmp").get_lsp_capabilities()
-            require("lspconfig")[nvim_lsp].setup({})
+            require("lspconfig")[nvim_lsp].setup(config)
         end
 
         setup("lua-language-server", {})
+
         setup("pyright", {})
+        setup("ruff", {})
+
+        setup("clangd", {})
 
         vim.cmd("LspStart")
         vim.diagnostic.config({
