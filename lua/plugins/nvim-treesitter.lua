@@ -4,7 +4,7 @@ return {
     main = "nvim-treesitter.configs",
     event = "VeryLazy",
     opts = {
-        ensure_installed = {"lua"},
+        ensure_installed = {"c", "cpp", "lua", "python", "markdown", "markdown_inline"},
         highlight = {
             enable = true
         }
