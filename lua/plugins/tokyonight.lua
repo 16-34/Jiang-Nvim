@@ -1,9 +1,11 @@
 -- 主题
 return {
     "folke/tokyonight.nvim",
-    opts = {},
+    opts = {
+        style = "night"
+    },
     config = function(_, opts)
-        require("tokyonight").setup(opt)
+        require("tokyonight").setup(opts)
         vim.cmd("colorscheme tokyonight")
     end
 }
