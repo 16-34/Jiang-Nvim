@@ -9,12 +9,12 @@ return {
         options = {
             theme = "auto",
             component_separators = {
-                left = "",
-                right = ""
+                left = "|",
+                right = "|"
             },
             section_separators = {
-                left = "",
-                right = ""
+                left = "",
+                right = ""
             }
         },
         extensions = {"nvim-tree"},
