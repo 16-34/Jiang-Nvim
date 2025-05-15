@@ -20,3 +20,7 @@ keymap.set("n", "<leader>f", "<CMD>lua vim.lsp.buf.format()<CR>")
 
 -- 取消高亮
 keymap.set("n", "<leader>nh", "<CMD>nohl<CR>")
+
+-- 重做
+keymap.set("n", "<leader>r", "<C-r>")
+keymap.set("i", "jk", "<ESC>")

@@ -13,8 +13,12 @@
 -- -- -- 7zip / peazip / archiver / winzip / WinRAR
 return {
     "williamboman/mason.nvim",
+    version = "^1.0.0",
     event = "VeryLazy",
-    dependencies = {"neovim/nvim-lspconfig", "williamboman/mason-lspconfig"},
+    dependencies = {"neovim/nvim-lspconfig", {
+        "mason-org/mason-lspconfig.nvim",
+        version = "^1.0.0"
+    }},
     opts = {
         ui = {
             icons = {
