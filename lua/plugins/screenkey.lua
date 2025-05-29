@@ -1,7 +1,7 @@
 -- 屏幕按键
 return {
     "NStefan002/screenkey.nvim",
-    lazy = false,
+    event = "VeryLazy",
     version = "*", -- or branch = "main", to use the latest commit
     opts = {
         win_opts = {
@@ -13,6 +13,6 @@ return {
     config = function(_, opts)
         screenkey = require("screenkey")
         screenkey.setup(opts)
-        screenkey.toggle()
+        -- screenkey.toggle()
     end
 }
