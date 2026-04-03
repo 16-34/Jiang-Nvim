@@ -1,3 +1,4 @@
+-- 封面
 return {
     'nvimdev/dashboard-nvim',
     event = 'VimEnter',
@@ -10,17 +11,7 @@ return {
                 append = {"Hello, Lue Jiang!"} -- table append after time string line
             },
             shortcut = { -- action can be a function type
-            {
-                desc = 'LeetCode',
-                key = 'L',
-                action = function()
-                    if vim.fn.exists(':Leet') == 2 then
-                        vim.cmd('Leet')
-                    else
-                        vim.notify("LeetCode 未安装或命令不存在", vim.log.levels.WARN)
-                    end
-                end
-            }},
+            },
             project = {
                 enable = false
             },

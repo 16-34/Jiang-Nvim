@@ -12,8 +12,6 @@
         -   git
         -   GNU tar
         -   7zip / peazip / archiver / winzip / WinRAR
--   venv-selector:
-    -   fd-find
 -   telescope:
     -   ripgrep
     -   cmake
