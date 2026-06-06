@@ -1,11 +1,11 @@
 -- 光标涂抹
-return {
-    "sphamba/smear-cursor.nvim",
-    opts = { -- Default  Range
-        stiffness = 0.8, -- 0.6      [0, 1]
-        trailing_stiffness = 0.5, -- 0.4      [0, 1]
-        stiffness_insert_mode = 0.6, -- 0.4      [0, 1]
-        trailing_stiffness_insert_mode = 0.6, -- 0.4      [0, 1]
-        distance_stop_animating = 0.5 -- 0.1      > 0
-    }
-}
+vim.pack.add({
+    "https://github.com/sphamba/smear-cursor.nvim"
+})
+
+local ok, smear_cursor = pcall(require, "smear_cursor")
+if not ok then
+    return
+end
+
+smear_cursor.setup()

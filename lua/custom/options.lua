@@ -1,9 +1,9 @@
--- -- 配置
 local opt = vim.opt
 
 -- 行号
--- opt.relativenumber = true
+opt.relativenumber = true
 opt.number = true
+opt.signcolumn = "yes"
 
 -- 缩进
 opt.tabstop = 4
@@ -16,8 +16,6 @@ opt.wrap = false
 
 -- 光标行
 opt.cursorline = true
-
-opt.colorcolumn = "80"
 
 -- 启用鼠标
 opt.mouse:append("a")
@@ -33,13 +31,18 @@ opt.splitbelow = true
 opt.ignorecase = true
 opt.smartcase = true
 
--- 外观
-opt.termguicolors = true
--- opt.signcolumn = "yes"
-
 -- 自动重新加载
 opt.autoread = true
 
+-- -- 持久化撤回
+-- opt.undofile = true
+
+-- 色彩
+opt.termguicolors = true
+opt.signcolumn = "yes"
+
+-- 移动键跨行
+opt.whichwrap:append("<,>,h,l")
+
 -- 禁止生成交换文件
 vim.o.swapfile = false
-

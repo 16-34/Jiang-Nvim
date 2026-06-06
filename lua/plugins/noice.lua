@@ -1,41 +1,25 @@
--- 命令行美化
-return {
-    "folke/noice.nvim",
-    event = "VeryLazy",
-    opts = {
-        views = {
-            cmdline_popup = {
-                position = {
-                    row = 5,
-                    col = "50%"
-                },
-                size = {
-                    width = 60,
-                    height = "auto"
-                }
+-- UI 美化
+vim.pack.add({
+    "https://github.com/folke/noice.nvim",
+    "https://github.com/MunifTanjim/nui.nvim",
+    -- "https://github.com/rcarriga/nvim-notify",
+})
+
+local ok, noice = pcall(require, "noice")
+if not ok then
+    return
+end
+
+noice.setup({
+    views = {
+        cmdline_popup = {
+            position = {
+                row = "35%",
+                col = "50%"
             },
-            popupmenu = {
-                relative = "editor",
-                position = {
-                    row = 8,
-                    col = "50%"
-                },
-                size = {
-                    width = 60,
-                    height = 10
-                },
-                border = {
-                    style = "rounded",
-                    padding = {0, 1}
-                },
-                win_options = {
-                    winhighlight = {
-                        Normal = "Normal",
-                        FloatBorder = "DiagnosticInfo"
-                    }
-                }
-            }
-        }
+        },
     },
-    dependencies = {"MunifTanjim/nui.nvim", "rcarriga/nvim-notify"}
-}
+    presets = {
+        lsp_doc_border = true,
+    },
+})

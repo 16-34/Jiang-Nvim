@@ -1,12 +1,23 @@
 -- AST
-return {
-    "nvim-treesitter/nvim-treesitter",
-    main = "nvim-treesitter.configs",
-    event = "VeryLazy",
-    opts = {
-        ensure_installed = {"c", "cpp", "lua", "python", "html", "markdown", "markdown_inline"},
-        highlight = {
-            enable = true
-        }
-    }
-}
+vim.pack.add({
+    "https://github.com/nvim-treesitter/nvim-treesitter"
+})
+
+local ok, treesitter = pcall(require, "nvim-treesitter")
+if not ok then
+    return
+end
+
+treesitter.setup({
+    ensure_installed = {
+        "c",
+        "cpp",
+        "lua",
+        "python",
+        "markdown",
+        "markdown_inline",
+    },
+    highlight = {
+        enable = true,
+    },
+})
