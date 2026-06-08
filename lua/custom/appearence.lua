@@ -1,9 +1,9 @@
 -- 配色
 vim.cmd.colorscheme("catppuccin")
 
-vim.api.nvim_set_hl(0, "Normal", {
-    bg = "NONE"
-})
+vim.opt.scrolloff = 999
+vim.opt.sidescrolloff = 8
+
 vim.api.nvim_set_hl(0, "StatusLine", {
     fg = "#ffffff",
     bg = "NONE",
@@ -40,3 +40,16 @@ require("utils.status-line-icon")
 
 -- -- 纯文本模式 --
 -- require("utils.status-line-text")
+
+if vim.g.neovide then
+    vim.g.neovide_hide_mouse_when_typing = true
+    vim.o.guifont = "JetBrainsMono Nerd Font:h14"
+    vim.g.neovide_opacity = 0.9
+    -- vim.g.neovide_cursor_animation_length = 0.2
+    -- vim.g.neovide_scroll_animation_length = 0.1
+else
+    -- 背景
+    vim.api.nvim_set_hl(0, "Normal", {
+        bg = "NONE"
+    })
+end

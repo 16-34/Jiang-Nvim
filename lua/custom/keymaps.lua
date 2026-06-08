@@ -26,16 +26,24 @@ keymap.set("n", "<leader><Up>", "<C-w>k", { desc = "跳转到上方窗格" })
 keymap.set("n", "<leader><Down>", "<C-w>j", { desc = "跳转到下方窗格" })
 keymap.set("n", "<leader>w", "<C-w>c", { desc = "关闭当前窗格" })
 
-keymap.set("i", "<C-i>", "<CMD>Inspect<CR>", { desc = "检查" })
-
 -- 光标移动
-vim.keymap.set("i", "<M-Left>", "<C-o>b")
-vim.keymap.set("i", "<M-Right>", "<C-o>w")
-vim.keymap.set("i", "<C-a>", "<Home>")
-vim.keymap.set("i", "<C-e>", "<End>")
+vim.keymap.set("i", "<M-Left>", "<C-o>b", { desc = "跳转到上一个词" })
+vim.keymap.set("i", "<M-Right>", "<C-o>w", { desc = "跳转到下一个词" })
+vim.keymap.set("i", "<C-a>", "<Home>", { desc = "跳转到行首" })
+vim.keymap.set("i", "<C-e>", "<End>", { desc = "跳转到行尾" })
+
+if vim.g.neovide then
+    vim.keymap.set("i", "<D-s>", "<Esc>:w<CR>a", { desc = "保存" })
+    vim.keymap.set("i", "<D-z>", "<Esc>ua", { desc = "撤销" })
+    vim.keymap.set("i", "<D-Z>", "<Esc><C-r>a", { desc = "重做" })
+else
+    vim.keymap.set("i", "<M-s>", "<Esc>:w<CR>a", { desc = "保存" })
+    vim.keymap.set("i", "<M-z>", "<Esc>ua", { desc = "撤销" })
+    vim.keymap.set("i", "<M-Z>", "<Esc><C-r>a", { desc = "重做" })
+end
 
 -- 终端
-vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', { noremap = true })
+vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { desc = "退出终端模式" })
 vim.keymap.set({ "n", "t" }, "<C-`>", function()
     local term_buf = nil
 

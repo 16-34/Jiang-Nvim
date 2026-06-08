@@ -54,7 +54,7 @@ function DiagnosticsCount()
     return " " .. errors .. "   " .. warnings
 end
 
-vim.opt.statusline = "%{v:lua.ModeName()}  >  " .. -- 状态
+vim.opt.statusline = " %{v:lua.ModeName()}  >  " .. -- 状态
     "%{v:lua.FileFlags()} %f  >  " .. -- 文件名
     "%{v:lua.FiletypeIcon()}  >  " .. -- 文件类型
     "%{v:lua.DiagnosticsCount()}  >  " .. -- 警告

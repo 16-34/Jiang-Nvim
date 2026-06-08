@@ -1,4 +1,8 @@
 -- 自动切换输入法(需要安装 im-select/macism)
+if vim.g.neovide then
+  return
+end
+
 vim.pack.add({
   "https://github.com/keaising/im-select.nvim",
 })

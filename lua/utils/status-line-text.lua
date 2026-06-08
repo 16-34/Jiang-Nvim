@@ -44,10 +44,10 @@ function DiagnosticsCount()
     return "E " .. errors .. ", W " .. warnings
 end
 
-vim.opt.statusline = "%{v:lua.ModeName()}" .. --
-    "  |  %{v:lua.FileFlags()}" ..            --
-    "  |  %f" ..                              --
-    "  |  %{v:lua.FiletypeText()}" ..         --
-    "  |  %{v:lua.DiagnosticsCount()}" ..     --
-    "  |  Ln %l, Col %c" ..                   --
+vim.opt.statusline = " %{v:lua.ModeName()}" .. --
+    "  |  %{v:lua.FileFlags()}" ..             --
+    "  |  %f" ..                               --
+    "  |  %{v:lua.FiletypeText()}" ..          --
+    "  |  %{v:lua.DiagnosticsCount()}" ..      --
+    "  |  Ln %l, Col %c" ..                    --
     "  |  %{v:lua.ProgressText()}"
