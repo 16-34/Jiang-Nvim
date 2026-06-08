@@ -22,6 +22,7 @@
 │   │   ├── blink.lua         # 补全
 │   │   ├── conform.lua       # 格式化
 │   │   ├── flash.lua         # 快速跳转
+│   │   ├── im-select.lua     # 自动切换输入法
 │   │   ├── mason.lua         # Mason 管理界面
 │   │   ├── mini.lua          # mini.move、mini.pick、mini.pairs
 │   │   ├── neo-tree.lua      # 文件树
@@ -48,7 +49,7 @@
 git clone --depth 1 https://github.com/16-34/LUE-NVIM ~/.config/nvim
 ```
 
-首次启动时，`vim.pack.add` 会按配置拉取插件。部分语言服务、formatter 和调试器需要提前安装到系统 `PATH`。
+首次启动时，`vim.pack.add` 会按配置拉取插件。部分语言服务、formatter、调试器和输入法切换工具需要提前安装到系统 `PATH`。
 
 ## 环境要求
 
@@ -57,6 +58,7 @@ git clone --depth 1 https://github.com/16-34/LUE-NVIM ~/.config/nvim
 - 推荐命令行工具：`ripgrep`、`fd`、`cmake`。
 - LSP 可执行文件：`ruff`、`pyright-langserver`、`lua-language-server`、`clangd`（部分可在 Mason 安装）。
 - 调试器或调试适配器：`python`、`lldb-dap`、`codelldb`、`gdb`，按实际语言调试需求安装。
+- 输入法切换：终端 Neovim 可选安装 `im-select` 或 `macism`，供 `im-select.nvim` 自动切换输入法；Neovide 本身已有该功能，该插件会自动跳过加载。
 - 配色：需要确保 `catppuccin` 主题在 Neovim 中可用，或自行替换 `lua/custom/appearence.lua` 中的配色名称。
 - 字体：推荐安装 Nerd Font，以正确显示状态栏和图标。
 
@@ -75,6 +77,7 @@ Leader 键为 `Space`。
 | `<leader><Left/Right/Up/Down>` | 在窗口之间移动             |
 | `<leader>w`                    | 关闭当前窗口               |
 | <kbd>Ctrl</kbd> + <kbd>`</kbd> | 切换浮动终端               |
+| `?`                            | 打开 `which-key` 快捷键图  |
 | `-`                            | 打开 `oil.nvim` 文件管理   |
 | `<leader>t`                    | 切换 `neo-tree` 文件树     |
 | `s`                            | 使用 `flash.nvim` 快速跳转 |
@@ -84,6 +87,19 @@ Leader 键为 `Space`。
 | `<leader><leader>h`            | 查找帮助文档               |
 | `<leader><leader>i`            | 查看 LSP incoming calls    |
 | `<leader><leader>d`            | 查看诊断列表               |
+
+## 插入模式快捷键
+
+| 快捷键                         | 功能                  |
+| ------------------------------ | --------------------- |
+| `jk`                           | 退出到普通模式        |
+| `<M-Left>` / `<M-Right>`       | 按词向左/向右移动光标 |
+| `<C-a>` / `<C-e>`              | 移动到行首/行尾       |
+| `<M-s>` / <kbd>Cmd</kbd> + `s` | 保存                  |
+| `<M-z>` / <kbd>Cmd</kbd> + `z` | 撤销                  |
+| `<M-Z>` / <kbd>Cmd</kbd> + `Z` | 重做                  |
+
+> 非 Neovide 使用 `<M-*>`，Neovide 使用 <kbd>Cmd</kbd> 组合键。
 
 ## LSP 快捷键
 
@@ -120,4 +136,4 @@ Leader 键为 `Space`。
 
 - `init.lua` 中默认启用 `neo-tree`，`nvim-tree` 目前作为备用配置保留但未加载。
 - `lua/custom/appearence.lua` 默认加载图标版状态栏；如需纯文本状态栏，可改为加载 `utils.status-line-text`。
-- Telescope 和 mini.pick 绑定了相同的部分搜索快捷键，后加载的 Telescope 会覆盖 mini.pick 对应映射。
+- `Telescope` 和 `mini.pick` 绑定了相同的部分搜索快捷键，后加载的 Telescope 会覆盖 mini.pick 对应映射。
