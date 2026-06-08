@@ -127,7 +127,12 @@ dap.configurations.cpp = {
         type = "lldb",
         request = "launch",
         program = function()
-            return vim.fn.input("可执行文件路径: ", vim.fn.getcwd() .. "/", "file")
+            local file = vim.fn.expand("%:t:r")
+            return vim.fn.input(
+                "可执行文件路径: ",
+                vim.fn.getcwd() .. "/" .. file,
+                "file"
+            )
         end,
         cwd = "${workspaceFolder}",
         stopOnEntry = false,
@@ -135,12 +140,17 @@ dap.configurations.cpp = {
     },
     {
         name = "Launch (gdb)",
-        type = "cppdbg",
+        type = "gdb",
         MIMode = "gdb",
         request = "launch",
-        miDebuggerPath = "/usr/bin/gdb",
+        miDebuggerPath = vim.fn.exepath("gdb"),
         program = function()
-            return vim.fn.input("可执行文件路径: ", vim.fn.getcwd() .. "/", "file")
+            local file = vim.fn.expand("%:t:r")
+            return vim.fn.input(
+                "可执行文件路径: ",
+                vim.fn.getcwd() .. "/" .. file,
+                "file"
+            )
         end,
         cwd = "${workspaceFolder}",
         setupCommands = {
@@ -157,7 +167,12 @@ dap.configurations.cpp = {
         type = "codelldb",
         request = "launch",
         program = function()
-            return vim.fn.input("可执行文件路径: ", vim.fn.getcwd() .. "/", "file")
+            local file = vim.fn.expand("%:t:r")
+            return vim.fn.input(
+                "可执行文件路径: ",
+                vim.fn.getcwd() .. "/" .. file,
+                "file"
+            )
         end,
         cwd = "${workspaceFolder}",
         stopOnEntry = false,
