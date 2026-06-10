@@ -13,13 +13,8 @@ require("plugins.nvim-dap")
 require("plugins.flash")
 require("plugins.oil")
 require("plugins.mini")
-require("plugins.telescope")
-
-require("plugins.toggleterm")
+require("plugins.snacks")
 require("plugins.noice")
-
-require("plugins.neo-tree")
--- require("plugins.nvim-tree")
 
 require("plugins.smear-cursor")
 require("plugins.which-key")
