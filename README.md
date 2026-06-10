@@ -24,16 +24,12 @@
 │   │   ├── flash.lua         # 快速跳转
 │   │   ├── im-select.lua     # 自动切换输入法
 │   │   ├── mason.lua         # Mason 管理界面
-│   │   ├── mini.lua          # mini.move、mini.pick、mini.pairs
-│   │   ├── neo-tree.lua      # 文件树
-│   │   ├── noice.lua         # 命令行和 LSP UI
+│   │   ├── mini.lua          # 多功能插件：mini.move、mini.pairs
+│   │   ├── noice.lua         # 命令行和输入框
 │   │   ├── nvim-dap.lua      # 调试
-│   │   ├── nvim-tree.lua     # 备用文件树配置
 │   │   ├── nvim-treesitter.lua # Treesitter 高亮
 │   │   ├── oil.lua           # 目录编辑式文件管理
-│   │   ├── smear-cursor.lua  # 光标动画
-│   │   ├── telescope.lua     # 搜索
-│   │   ├── toggleterm.lua    # 浮动终端
+│   │   ├── snacks.lua        # 多功能插件：dashboard、picker、文件数、浮动终端、图片渲染
 │   │   └── which-key.lua     # 快捷键提示
 │   └── utils/                # 其他工具
 │       ├── status-line-icon.lua
@@ -78,15 +74,19 @@ Leader 键为 `Space`。
 | `<leader>w`                    | 关闭当前窗口               |
 | <kbd>Ctrl</kbd> + <kbd>`</kbd> | 切换浮动终端               |
 | `?`                            | 打开 `which-key` 快捷键图  |
-| `-`                            | 打开 `oil.nvim` 文件管理   |
-| `<leader>t`                    | 切换 `neo-tree` 文件树     |
+| `-`                            | 打开 `Oil` 文件管理        |
 | `s`                            | 使用 `flash.nvim` 快速跳转 |
+| `<leader>t`                    | 切换 `Snacks` 文件树       |
 | `<leader><leader>f`            | 查找文件                   |
 | `<leader><leader>g`            | 全局搜索内容               |
 | `<leader><leader>b`            | 查找 Buffer                |
 | `<leader><leader>h`            | 查找帮助文档               |
+| `<leader><leader>k`            | 查找按键映射               |
+| `<leader><leader>/`            | 当前文件内模糊查找         |
+| `<leader><leader>n`            | 查看通知历史               |
 | `<leader><leader>i`            | 查看 LSP incoming calls    |
 | `<leader><leader>d`            | 查看诊断列表               |
+| `<leader><leader>z`            | 切换禅模式                 |
 
 ## 插入模式快捷键
 
@@ -103,17 +103,17 @@ Leader 键为 `Space`。
 
 ## LSP 快捷键
 
-| 快捷键       | 功能                     |
-| ------------ | ------------------------ |
-| `gd`         | 垂直分屏后跳转到定义     |
-| `gt`         | 垂直分屏后跳转到类型定义 |
-| `gr`         | 垂直分屏后查看引用       |
-| `gi`         | 垂直分屏后跳转到实现     |
-| `r`          | LSP 重命名               |
-| `<leader>ca` | 代码动作                 |
-| `<leader>dn` | 下一个诊断               |
-| `<leader>dp` | 上一个诊断               |
-| `<leader>dv` | 开关诊断虚拟行           |
+| 快捷键       | 功能           |
+| ------------ | -------------- |
+| `gd`         | 跳转到定义     |
+| `gt`         | 跳转到类型定义 |
+| `gr`         | 查找引用       |
+| `gi`         | 跳转到实现     |
+| `r`          | LSP 重命名     |
+| `<leader>ca` | 代码动作       |
+| `<leader>dn` | 下一个诊断     |
+| `<leader>dp` | 上一个诊断     |
+| `<leader>dv` | 开关诊断虚拟行 |
 
 ## 调试快捷键
 
@@ -134,6 +134,4 @@ Leader 键为 `Space`。
 
 ## 说明
 
-- `init.lua` 中默认启用 `neo-tree`，`nvim-tree` 目前作为备用配置保留但未加载。
 - `lua/custom/appearence.lua` 默认加载图标版状态栏；如需纯文本状态栏，可改为加载 `utils.status-line-text`。
-- `Telescope` 和 `mini.pick` 绑定了相同的部分搜索快捷键，后加载的 Telescope 会覆盖 mini.pick 对应映射。
