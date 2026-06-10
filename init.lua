@@ -16,7 +16,6 @@ require("plugins.mini")
 require("plugins.snacks")
 require("plugins.noice")
 
-require("plugins.smear-cursor")
 require("plugins.which-key")
 require("plugins.conform")
 require("plugins.im-select")
