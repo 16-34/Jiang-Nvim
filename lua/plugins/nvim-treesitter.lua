@@ -8,16 +8,30 @@ if not ok then
     return
 end
 
-treesitter.setup({
-    ensure_installed = {
+-- 报错解决： brew install tree-sitter-cli
+treesitter.setup()
+treesitter.install({
+    "c",
+    "cpp",
+    "lua",
+    "python",
+    "markdown",
+    "markdown_inline",
+    "bash",
+    "zsh",
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = {
         "c",
         "cpp",
         "lua",
         "python",
         "markdown",
-        "markdown_inline",
+        "sh",
+        "zsh",
     },
-    highlight = {
-        enable = true,
-    },
+    callback = function(args)
+        pcall(vim.treesitter.start, args.buf)
+    end,
 })

@@ -4,6 +4,8 @@ lsp.enable("ruff")
 lsp.enable("pyright")
 lsp.enable("lua_ls")
 lsp.enable("clangd")
+lsp.enable("bashls")
+lsp.enable("marksman")
 
 -- 诊断信息
 local virtual_lines_enabled = false
