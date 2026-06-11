@@ -22,6 +22,7 @@ snacks.setup({
             input = {
                 keys = {
                     ["<C-t>"] = { "edit_tab", mode = { "n", "i" } },
+                    ["<Tab>"] = { "confirm", mode = { "n", "i" } },
                 },
             },
         },
@@ -100,6 +101,8 @@ vim.keymap.set("n", "<leader><leader>/", snacks.picker.lines, { desc = "Snacks �
 
 vim.keymap.set("n", "<leader><leader>n", snacks.notifier.show_history, { desc = "Snacks 查看通知历史" })
 vim.keymap.set('n', '<leader><leader>i', snacks.picker.lsp_incoming_calls, { desc = 'Snacks 查看谁调用了当前函数' })
+vim.keymap.set('n', '<leader><leader>t', snacks.picker.treesitter, { desc = 'Snacks 查找语法树' })
+vim.keymap.set('n', '<leader><leader>s', snacks.picker.lsp_symbols, { desc = 'Snacks 查找 lsp 符号' })
 
 vim.keymap.set('n', '<leader>t', snacks.explorer.open, { desc = 'Snacks 文件树' })
 
