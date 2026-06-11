@@ -8,8 +8,11 @@ if not ok then
     return
 end
 
-wk.setup()
+wk.setup({
+    preset = "modern",
+})
 
 vim.keymap.set("n", "?", function()
     wk.show()
 end, { desc = "which-key 键盘映射图" })
+

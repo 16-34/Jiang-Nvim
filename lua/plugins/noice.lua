@@ -9,6 +9,11 @@ if not ok then
     return
 end
 
+local notify_ok, notify = pcall(require, "notify")
+if notify_ok then
+    notify.setup({ background_colour = "#000000", })
+end
+
 noice.setup({
     views = {
         cmdline_popup = {

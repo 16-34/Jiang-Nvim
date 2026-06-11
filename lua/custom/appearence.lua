@@ -1,9 +1,6 @@
 -- 配色
 vim.cmd.colorscheme("catppuccin")
 
-vim.opt.scrolloff = 999
-vim.opt.sidescrolloff = 8
-
 vim.api.nvim_set_hl(0, "StatusLine", {
     fg = "#ffffff",
     bg = "NONE",

@@ -5,6 +5,10 @@ opt.relativenumber = true
 opt.number = true
 opt.signcolumn = "yes"
 
+-- 光标附近保留行/列
+vim.opt.scrolloff = 8
+vim.opt.sidescrolloff = 8
+
 -- 缩进
 opt.tabstop = 4
 opt.shiftwidth = 4
@@ -46,3 +50,8 @@ opt.whichwrap:append("<,>,h,l")
 
 -- 禁止生成交换文件
 vim.o.swapfile = false
+
+-- 空白行字符
+vim.opt.fillchars = {
+    eob = " ",
+}
